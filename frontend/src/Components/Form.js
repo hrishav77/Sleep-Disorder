@@ -1,16 +1,9 @@
 import { useState } from 'react';
-import { ChakraProvider, Box, FormControl, FormLabel, Input, Button,Select,extendTheme,Text, Center} from '@chakra-ui/react';
+import {  Box, FormControl, FormLabel, Input, Button,Select,Text, Center} from '@chakra-ui/react';
+import Navbar from './Navbar';
 
 const InputForm = () => {
-    const theme = extendTheme({
-        styles: {
-          global: () => ({
-            body: {
-              bg: ""
-            }
-          })
-        }
-      });
+ 
 
     const [pred,setpred]=useState("")
     const [formData, setFormData] = useState({
@@ -116,7 +109,8 @@ const InputForm = () => {
   
 
   return (
-    <ChakraProvider theme={theme}>
+      <>
+      <Navbar/>
       {
         !pred &&  <>
         <Center><Text fontSize="3xl">Fill this form to know if you have any sleep disorder</Text></Center>
@@ -165,9 +159,10 @@ const InputForm = () => {
       </Box>
       </>
       }
-      {pred ? (
   <Center>
-  <Text fontSize="4xl">
+
+      {pred ? (
+  <Text fontSize="4xl" color="teal.300">
  
     {pred === 'Insomnia' ? (
       'You have a high chance of insomnia'
@@ -177,10 +172,13 @@ const InputForm = () => {
       'Yay! You have a very little chance of any sleep disorder'
     )}
   </Text>
-  </Center>
 ) : null}
-     
-    </ChakraProvider>
+{pred && <Button colorScheme='yellow' onClick={()=>setpred("")} m="3" size="sm">Predict again</Button>}
+
+</Center>
+
+     </>
+
   );
 };
 
