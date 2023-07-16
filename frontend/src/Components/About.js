@@ -7,8 +7,8 @@ export default function About() {
         <Navbar/>
         <Center>
         <Flex direction='column'>
-        <Text fontSize="lg">To know how this data is predicted click on the link below</Text>
-        <a href='https://notebooksharing.space/view/3fe810e15e4a5bfb2deef79697a6e8bf1ffb10aba6e3bc66a1f98685aeeb3d2e#displayOptions='>
+        <Text fontSize="lg">I did some analysis on different factors which causes sleep disorders here is a jupyter notebook link showing the analysis</Text>
+        <a href='https://notebooksharing.space/view/c5ab25e96a24715ce13fe1767005fff7eb10bd096b99e8d836e47f674d5dba44#displayOptions='>
            <Button colorScheme='yellow' size="sm">Notebook link</Button> 
         </a>
         </Flex>

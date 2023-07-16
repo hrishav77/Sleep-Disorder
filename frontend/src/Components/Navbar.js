@@ -7,6 +7,7 @@ const Navbar = () => {
       <Flex h={16} alignItems="center" justifyContent="space-between">
         <Box>
           <Link to="/">
+           
             <Text fontSize="xl" color="white">Sleep Disorder predictor</Text>
             
           </Link>

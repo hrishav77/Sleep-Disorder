@@ -113,9 +113,9 @@ const InputForm = () => {
       <Navbar/>
       {
         !pred &&  <>
-        <Center><Text fontSize="3xl">Fill this form to know if you have any sleep disorder</Text></Center>
+        <Center><Text fontSize="3xl">Fill this form to know the chances of having a sleep disorder</Text></Center>
         
-        <Box maxWidth="500px" margin="0 auto" mt={8} bg="white" p="5" borderRadius="5" boxShadow="lg">
+        <Box maxWidth="500px"  mt={8} bg="white" p="5" borderRadius="5" boxShadow="lg">
         <form onSubmit={handleSubmit}>
           {selected_columns.map((column) => (
             <FormControl key={column} mb={4}>
@@ -173,7 +173,7 @@ const InputForm = () => {
     )}
   </Text>
 ) : null}
-{pred && <Button colorScheme='yellow' onClick={()=>setpred("")} m="3" size="sm">Predict again</Button>}
+{pred && <Button colorScheme='yellow' onClick={()=>window.location.reload()} m="3" size="sm">Predict again</Button>}
 
 </Center>
 
