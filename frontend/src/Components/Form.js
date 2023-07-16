@@ -115,7 +115,7 @@ const InputForm = () => {
         !pred &&  <>
         <Center><Text fontSize="3xl">Fill this form to know the chances of having a sleep disorder</Text></Center>
         
-        <Box maxWidth="500px"  mt={8} bg="white" p="5" borderRadius="5" boxShadow="lg">
+        <Box maxWidth="500px" margin="0 auto" mt={8} bg="white" p="5" borderRadius="5" boxShadow="lg">
         <form onSubmit={handleSubmit}>
           {selected_columns.map((column) => (
             <FormControl key={column} mb={4}>
