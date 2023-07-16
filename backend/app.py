@@ -47,7 +47,6 @@ def submit_form():
 
     sorted_form_data = {key: form_data[key] for key in desired_order}
     input_df = pd.DataFrame(sorted_form_data, index=[0])
-    print(input_df)
     with open('scaler.pkl', 'rb') as file:
         loaded_scaler = pickle.load(file)
     X_standard = loaded_scaler.transform(input_df.values)
@@ -57,7 +56,7 @@ def submit_form():
     prediction_list = prediction.tolist()
     prediction_value = prediction_list[0]  # Extract the first element from the list
     response = jsonify(prediction_value)
-    return response
+    return jsonify("none")
 
 if __name__=="__main__":
     app.run(debug=False,host='0.0.0.0')
