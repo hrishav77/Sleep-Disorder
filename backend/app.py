@@ -56,7 +56,7 @@ def submit_form():
     prediction_list = prediction.tolist()
     prediction_value = prediction_list[0]  # Extract the first element from the list
     response = jsonify(prediction_value)
-    return jsonify("none")
+    return response
 
 if __name__=="__main__":
     app.run(debug=False,host='0.0.0.0')
