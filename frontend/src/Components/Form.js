@@ -40,7 +40,7 @@ const InputForm = () => {
         const updatedFormData = { ...formData };
         setFormData(updatedFormData);
         try {
-          const response = await fetch('http://127.0.0.1:4000/form', {
+          const response = await fetch('https://sleep-disorder.onrender.com/form', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
