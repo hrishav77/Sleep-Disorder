@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import {  Box, FormControl, FormLabel, Input, Button,Select,Text, Center} from '@chakra-ui/react';
 import Navbar from './Navbar';
-
+import BeatLoader from "react-spinners/BeatLoader";
 const InputForm = () => {
  
 
     const [pred,setpred]=useState("")
+    const [isloading,setloading]=useState(false)
     const [formData, setFormData] = useState({
         'Age': '',
         'Sleep Duration': '',
@@ -16,8 +17,8 @@ const InputForm = () => {
         'Daily Steps(max 10000)': '',
         'BloodPressure_high': '',
         'BloodPressure_low': '',
-        'Gender_Female(1 or 0)': '',
-        'Gender_Male(1 or 0)': '',
+        'Gender_Female(1 or 0)': '0',
+        'Gender_Male(1 or 0)': '0',
         'Occupation_Accountant': '0',
         'Occupation_Doctor': '0',
         'Occupation_Engineer': '0',
@@ -36,6 +37,7 @@ const InputForm = () => {
       });
 
       const handleSubmit =async (e) => {
+        setloading(true)
         e.preventDefault();
         const updatedFormData = { ...formData };
         setFormData(updatedFormData);
@@ -47,9 +49,10 @@ const InputForm = () => {
             },
             body: JSON.stringify(formData),
           });
-      
+          
           if (response.ok) {
             const prediction = await response.json(); // Extract the JSON data from the response
+            setloading(false)
             setpred(prediction)
           } else {
             console.error('Error submitting form');
@@ -82,8 +85,6 @@ const InputForm = () => {
         'Daily Steps(max 10000)',
         'BloodPressure_high',
         'BloodPressure_low',
-        'Gender_Female(1 or 0)',
-        'Gender_Male(1 or 0)',
       ];
       const occupationOptions = [
         'Accountant',
@@ -151,12 +152,26 @@ const InputForm = () => {
               {/* Add more occupation options here */}
             </Select>
           </FormControl>
+          <FormControl mb={4}>
+            <FormLabel>Gender</FormLabel>
+            <Select name="Gender"  onChange={handleChange} >
+              <option value="">Select you Gender</option>
+              <option value="Gender_Male(1 or 0)">Male</option>
+              <option value="Gender_Female(1 or 0)">Female</option>
+
+              {/* Add more occupation options here */}
+            </Select>
+          </FormControl>
    
           <Button colorScheme="teal" type="submit">
             Submit
           </Button>
+
         </form>
+        {isloading && <BeatLoader color="#36d7b7" size={15} margin="5px" aria-label='loading'cssOverride={{margin: "5px",colour:"teal"}}/>}
+
       </Box>
+
       </>
       }
   <Center>
@@ -174,7 +189,6 @@ const InputForm = () => {
   </Text>
 ) : null}
 {pred && <Button colorScheme='yellow' onClick={()=>window.location.reload()} m="3" size="sm">Predict again</Button>}
-
 </Center>
 
      </>
