@@ -77,7 +77,7 @@ const InputForm = () => {
 
       const selected_columns = [
         'Age',
-        'Sleep Duration',
+        'Sleep Duration(5-8)',
         'Quality of Sleep(4-10)',
         'Physical Activity Level(30-100)',
         'Stress Level(3-8)',
