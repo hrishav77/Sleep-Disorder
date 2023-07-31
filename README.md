@@ -7,6 +7,8 @@ This is a web application for predicting sleep disorders based on various health
 ![Example Image](ss2.jpg)
 ### About page
 ![Example Image](ss3.jpg)
+# Jupyter Notebook link
+https://notebooksharing.space/view/51a2cdf80dd1abe804201912270a33337761ee8473804f4a55cd1e2cc98c5351#displayOptions=
 # Features
 User Input: Users can enter their age, gender, occupation, sleep duration, quality of sleep, physical activity level, stress level, heart rate, daily steps, BMI category, and blood pressure.
 Prediction: The website processes the user's input through a trained machine learning model to predict the likelihood of different sleep disorders, such as insomnia or sleep apnea.
