@@ -54,7 +54,7 @@ def submit_form():
         mp = pickle.load(file)
     prediction=mp.predict(X_standard)
     prediction_list = prediction.tolist()
-    prediction_value = prediction_list[0]  # Extract the first element from the list
+    prediction_value = prediction_list[0] 
     response = jsonify(prediction_value)
     return response
 
