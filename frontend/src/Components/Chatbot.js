@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { Box, Input, Button, VStack, Text, HStack } from "@chakra-ui/react";
+import {
+  Box,
+  Input,
+  Button,
+  VStack,
+  Text,
+  HStack,
+  Heading,
+} from "@chakra-ui/react";
 import { FaPaperPlane } from "react-icons/fa";
 
 const Chatbot = () => {
@@ -43,13 +51,16 @@ const Chatbot = () => {
   return (
     <Box
       w={{ base: "100%", md: "400px" }}
-      h="500px"
+      h="400px"
       bg="gray.100"
       borderRadius="md"
       p={4}
       display="flex"
       flexDirection="column"
     >
+      <Heading size="md" textAlign="center" mb={4}>
+        Sleep Disorder Chatbot
+      </Heading>
       <VStack flex={1} overflowY="auto" spacing={3} align="stretch">
         {messages.map((msg, idx) => (
           <HStack

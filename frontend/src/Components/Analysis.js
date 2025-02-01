@@ -1,6 +1,7 @@
 import React from "react";
 import { Link as RouterLink } from "react-router-dom";
-import { Button, Center, Flex, Text, Box } from "@chakra-ui/react";
+import { Button, Center, Flex, Text, Box, HStack } from "@chakra-ui/react";
+import Chatbot from "./Chatbot";
 
 export default function About() {
   return (
@@ -78,6 +79,7 @@ export default function About() {
             >
               Occupation
             </Button>
+            <Chatbot />
           </Flex>
         </Box>
       </Center>

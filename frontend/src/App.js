@@ -29,7 +29,6 @@ function App() {
             element={
               <>
                 <Navbar />
-                <Chatbot />
                 <AgeAnalysis />
                 <SleepAnalysis />
                 <OccupationAnalysis />
