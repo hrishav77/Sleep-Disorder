@@ -14,13 +14,16 @@ const Chatbot = () => {
     setInput("");
 
     try {
-      const response = await fetch("https://your-api-endpoint.com/chat", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ message: input }),
-      });
+      const response = await fetch(
+        "https://sleep-disorder.onrender.com/chatbot",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ message: input }),
+        }
+      );
 
       const data = await response.json();
       const botMessage = { sender: "bot", text: data.response };
