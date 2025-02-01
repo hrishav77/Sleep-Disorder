@@ -1,0 +1,149 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hello",
+        "Hey",
+        "Good day",
+        "How are you?"
+      ],
+      "responses": [
+        "Hello! How can I assist you with your sleep-related questions today?",
+        "Hi there! Do you have any concerns about your sleep health?",
+        "Hey! I'm here to help you understand more about sleep disorders."
+      ],
+      "context": ["general"]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "Bye",
+        "See you later",
+        "Goodbye",
+        "Take care"
+      ],
+      "responses": [
+        "Goodbye! Wishing you restful nights ahead.",
+        "See you later! Remember, good sleep is essential for good health.",
+        "Bye! Don't hesitate to return if you have more questions about sleep."
+      ],
+      "context": ["general"]
+    },
+    {
+      "tag": "general_line",
+      "patterns": [
+        "Tell me something general about sleep.",
+        "What is the importance of sleep?",
+        "Why is sleep important?"
+      ],
+      "responses": [
+        "Sleep is essential for maintaining physical and mental well-being. It helps improve memory, boosts immunity, and supports overall health.",
+        "A good night's sleep helps the body repair itself, strengthens the immune system, and enhances cognitive function."
+      ],
+      "context": ["general"]
+    },
+    {
+      "tag": "general_conversation",
+      "patterns": [
+        "What do you do?",
+        "Who are you?",
+        "What is your purpose?",
+        "Are you a chatbot?",
+        "Can you help me with anything else?",
+        "Do you sleep?",
+        "Where are you from?",
+        "Do you have emotions?",
+        "What is your name?"
+      ],
+      "responses": [
+        "I am a chatbot designed to provide information about sleep disorders and help you improve your sleep health.",
+        "Yes, I am a chatbot. My purpose is to assist you with any sleep-related concerns and share useful sleep-related insights.",
+        "I dont sleep, but I can help you learn how to get better sleep!",
+        "I exist in the digital world, ready to answer your sleep-related questions anytime!",
+        "I dont have emotions, but I am always here to provide support and guidance on sleep health.",
+        "My name is SleepBot, and I specialize in helping people understand sleep disorders."
+      ],
+      "context": ["general"]
+    },
+    {
+      "tag": "website_help",
+      "patterns": [
+        "How can your website help me?",
+        "What does your website do?",
+        "Can your website predict sleep disorders?"
+      ],
+      "responses": [
+        "Our website helps predict potential sleep disorders based on factors such as age, sleep duration, and lifestyle habits. Using advanced AI models, we analyze your inputs and provide insights into possible sleep conditions.",
+        "By entering details like sleep patterns, stress levels, and physical activity, our website's AI model can assess your risk for sleep disorders and suggest potential solutions."
+      ],
+      "context": ["general"]
+    },
+    {
+      "tag": "good_practices",
+      "patterns": [
+        "What are some good sleep practices?",
+        "How can I improve my sleep habits?",
+        "Give me some tips for better sleep."
+      ],
+      "responses": [
+        "Maintaining a consistent sleep schedule, avoiding caffeine before bedtime, and reducing screen exposure before sleep can significantly improve sleep quality.",
+        "Engaging in relaxation techniques, ensuring a comfortable sleep environment, and exercising regularly are great ways to promote better sleep."
+      ],
+      "context": ["sleep_health"]
+    },
+    {
+      "tag": "sleep_disorder_info",
+      "patterns": [
+        "What is a sleep disorder?",
+        "Can you explain sleep disorders?",
+        "Tell me about sleep disorders"
+      ],
+      "responses": [
+        "Sleep disorders are conditions that impair your sleep patterns, leading to issues like daytime fatigue and reduced quality of life. Common types include insomnia, sleep apnea, and restless legs syndrome.",
+        "Experiencing irregular sleep patterns, difficulty falling asleep, or excessive daytime sleepiness might indicate a sleep disorder. It's important to identify and address these issues early."
+      ],
+      "context": ["sleep_health"]
+    },
+    {
+      "tag": "treatment_cure",
+      "patterns": [
+        "How can sleep disorders be treated?",
+        "What are the treatments for sleep disorders?",
+        "Can sleep disorders be cured?"
+      ],
+      "responses": [
+        "Treatment depends on the type of sleep disorder. Options include lifestyle changes, cognitive behavioral therapy, medication, and specialized devices like CPAP machines for sleep apnea.",
+        "Some sleep disorders can be managed or alleviated with proper sleep hygiene, therapy, and medical intervention. Consulting a sleep specialist is recommended for persistent issues."
+      ],
+      "context": ["sleep_health"]
+    },
+    {
+      "tag": "suffering",
+      "patterns": [
+        "I am struggling with sleep issues.",
+        "I can't sleep properly.",
+        "I'm suffering from a sleep disorder."
+      ],
+      "responses": [
+        "I'm sorry to hear that you're struggling with sleep. Have you tried improving your sleep environment and maintaining a consistent schedule?",
+        "Persistent sleep issues can be challenging. It might help to consult a medical professional or try relaxation techniques like meditation before bedtime."
+      ],
+      "context": ["support"]
+    },
+    {
+      "tag": "thank_you",
+      "patterns": [
+        "Thanks",
+        "Thank you",
+        "That's helpful"
+      ],
+      "responses": [
+        "You're welcome! I'm glad I could assist you.",
+        "Happy to help! If you have more questions, feel free to ask."
+      ],
+      "context": ["general"]
+    }
+  ]
+}

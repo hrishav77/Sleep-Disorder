@@ -6,6 +6,7 @@ import AgeAnalysis from "./Components/AgeAnalysis";
 import Navbar from "./Components/Navbar";
 import OccupationAnalysis from "./Components/OccupationAnalysis";
 import SleepAnalysis from "./Components/SleepAnalysis";
+import Chatbot from "./Components/Chatbot";
 
 function App() {
   const theme = extendTheme({
@@ -28,6 +29,7 @@ function App() {
             element={
               <>
                 <Navbar />
+                <Chatbot />
                 <AgeAnalysis />
                 <SleepAnalysis />
                 <OccupationAnalysis />
