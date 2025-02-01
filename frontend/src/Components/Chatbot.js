@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Box,
   Input,
@@ -7,12 +7,22 @@ import {
   Text,
   HStack,
   Heading,
+  IconButton,
 } from "@chakra-ui/react";
-import { FaPaperPlane } from "react-icons/fa";
+import { FaPaperPlane, FaCommentDots } from "react-icons/fa";
 
 const Chatbot = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+  const messagesContainerRef = useRef(null);
+
+  useEffect(() => {
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTop =
+        messagesContainerRef.current.scrollHeight;
+    }
+  }, [messages]);
 
   const sendMessage = async () => {
     if (!input.trim()) return;
@@ -48,46 +58,92 @@ const Chatbot = () => {
     }
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      sendMessage();
+    }
+  };
+
   return (
-    <Box
-      w={{ base: "100%", md: "400px" }}
-      h="400px"
-      bg="gray.100"
-      borderRadius="md"
-      p={4}
-      display="flex"
-      flexDirection="column"
-    >
-      <Heading size="md" textAlign="center" mb={4}>
-        Sleep Disorder Chatbot
-      </Heading>
-      <VStack flex={1} overflowY="auto" spacing={3} align="stretch">
-        {messages.map((msg, idx) => (
-          <HStack
-            key={idx}
-            alignSelf={msg.sender === "user" ? "flex-end" : "flex-start"}
-            bg={msg.sender === "user" ? "blue.500" : "gray.300"}
-            color={msg.sender === "user" ? "white" : "black"}
-            px={3}
-            py={2}
-            borderRadius="md"
+    <>
+      {!isOpen && (
+        <Box
+          position="fixed"
+          bottom="80px"
+          right="20px"
+          bg="blue.500"
+          color="white"
+          px={4}
+          py={2}
+          borderRadius="md"
+          cursor="pointer"
+          onClick={() => setIsOpen(true)}
+        >
+          Hi! Click here to talk
+        </Box>
+      )}
+      <IconButton
+        icon={<FaCommentDots />}
+        position="fixed"
+        bottom="20px"
+        right="20px"
+        colorScheme="blue"
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label="Open Chatbot"
+      />
+      {isOpen && (
+        <Box
+          position="fixed"
+          bottom="70px"
+          right="20px"
+          w={{ base: "100%", md: "400px" }}
+          h="400px"
+          bg="gray.100"
+          borderRadius="md"
+          p={4}
+          display="flex"
+          flexDirection="column"
+          boxShadow="lg"
+        >
+          <Heading size="md" textAlign="center" mb={4}>
+            Sleep Disorder Chatbot
+          </Heading>
+          <VStack
+            flex={1}
+            overflowY="auto"
+            spacing={3}
+            align="stretch"
+            ref={messagesContainerRef}
           >
-            <Text>{msg.text}</Text>
+            {messages.map((msg, idx) => (
+              <HStack
+                key={idx}
+                alignSelf={msg.sender === "user" ? "flex-end" : "flex-start"}
+                bg={msg.sender === "user" ? "blue.500" : "gray.300"}
+                color={msg.sender === "user" ? "white" : "black"}
+                px={3}
+                py={2}
+                borderRadius="md"
+              >
+                <Text>{msg.text}</Text>
+              </HStack>
+            ))}
+          </VStack>
+          <HStack mt={4}>
+            <Input
+              flex={1}
+              placeholder="Type a message..."
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleKeyDown}
+            />
+            <Button colorScheme="blue" onClick={sendMessage}>
+              <FaPaperPlane />
+            </Button>
           </HStack>
-        ))}
-      </VStack>
-      <HStack mt={4}>
-        <Input
-          flex={1}
-          placeholder="Type a message..."
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-        />
-        <Button colorScheme="blue" onClick={sendMessage}>
-          <FaPaperPlane />
-        </Button>
-      </HStack>
-    </Box>
+        </Box>
+      )}
+    </>
   );
 };
 
