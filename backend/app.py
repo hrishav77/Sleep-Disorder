@@ -59,7 +59,7 @@ def chatbot_response():
     probs = torch.softmax(output, dim=1)
     prob = probs[0][predicted.item()]
 
-    if prob > 0.50:
+    if prob > 0.70:
         for intent in intents["intents"]:
             if tag == intent["tag"]:
                 return jsonify({"response": random.choice(intent["responses"])})
