@@ -47,7 +47,7 @@ def chatbot_response():
 
     if not sentence:
         return jsonify({"response": "Please enter a message."})
-
+    sentence=tokenize(sentence)
     X = bagOfWords(sentence, allWords)
     X = X.reshape(1, X.shape[0])
     X = torch.from_numpy(X).to(device)
