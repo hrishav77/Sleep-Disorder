@@ -69,8 +69,8 @@ const Chatbot = () => {
       {!isOpen && (
         <Box
           position="fixed"
-          bottom="80px"
-          right="20px"
+          bottom={{ base: "100px", md: "80px" }}
+          right={{ base: "10px", md: "20px" }}
           bg="blue.500"
           color="white"
           px={4}
@@ -78,6 +78,8 @@ const Chatbot = () => {
           borderRadius="md"
           cursor="pointer"
           onClick={() => setIsOpen(true)}
+          fontSize={{ base: "sm", md: "md" }}
+          zIndex="9999"
         >
           Hi! Click here to talk
         </Box>
@@ -85,25 +87,28 @@ const Chatbot = () => {
       <IconButton
         icon={<FaCommentDots />}
         position="fixed"
-        bottom="20px"
-        right="20px"
+        bottom={{ base: "10px", md: "20px" }}
+        right={{ base: "10px", md: "20px" }}
         colorScheme="blue"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Open Chatbot"
+        size={{ base: "sm", md: "md" }}
+        zIndex="9999"
       />
       {isOpen && (
         <Box
           position="fixed"
-          bottom="70px"
-          right="20px"
-          w={{ base: "100%", md: "400px" }}
-          h="400px"
+          bottom={{ base: "60px", md: "70px" }}
+          right={{ base: "10px", md: "20px" }}
+          w={{ base: "90%", md: "400px" }}
+          h={{ base: "350px", md: "400px" }}
           bg="gray.100"
           borderRadius="md"
           p={4}
           display="flex"
           flexDirection="column"
           boxShadow="lg"
+          zIndex="9999"
         >
           <Heading size="md" textAlign="center" mb={4}>
             Sleep Disorder Chatbot
@@ -136,8 +141,13 @@ const Chatbot = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
+              fontSize={{ base: "sm", md: "md" }}
             />
-            <Button colorScheme="blue" onClick={sendMessage}>
+            <Button
+              colorScheme="blue"
+              onClick={sendMessage}
+              size={{ base: "sm", md: "md" }}
+            >
               <FaPaperPlane />
             </Button>
           </HStack>
